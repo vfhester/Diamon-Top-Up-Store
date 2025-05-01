@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamond Top-Up Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, button, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #219150;
+    }
+    .gpay-info {
+      display: none;
+      background: #f0f8ff;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 4px solid #2196F3;
+    }
+  </style>
+  <script>
+    function showPaymentInfo() {
+      const method = document.getElementById("payment").value;
+      const gpayInfo = document.getElementById("gpayInfo");
+      if (method === "gpay") {
+        gpayInfo.style.display = "block";
+      } else {
+        gpayInfo.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Diamond Top-Up Store</h1>
+  </header>
+  <div class="container">
+    <form>
+      <label for="game">Select Game:</label>
+      <select id="game" name="game">
+        <option value="freefire">Free Fire</option>
+        <option value="mobilelegends">Mobile Legends</option>
+      </select>
+
+      <label for="playerId">Player ID:</label>
+      <input type="text" id="playerId" name="playerId" required />
+
+      <label for="amount">Select Diamond Amount:</label>
+      <select id="amount" name="amount">
+        <option value="50">50 Diamonds - $0.99</option>
+        <option value="100">100 Diamonds - $1.99</option>
+        <option value="250">250 Diamonds - $4.99</option>
+        <option value="500">500 Diamonds - $9.99</option>
+      </select>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" name="payment" onchange="showPaymentInfo()">
+        <option value="paypal">PayPal</option>
+        <option value="gcash">GCash</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="gpay">Google Pay</option>
+      </select>
+
+      <div id="gpayInfo" class="gpay-info">
+        <p><strong>Send payment to:</strong> winnergame9@oksbi</p>
+        <p>After completing the payment, enter the Transaction ID below.</p>
+      </div>
+
+      <label for="transactionId">Transaction ID (for GPay payments):</label>
+      <input type="text" id="transactionId" name="transactionId" />
+
+      <button type="submit">Submit Payment</button>
+    </form>
+  </div>
+</body>
+</html>
