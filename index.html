@@ -1,111 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diamond Top-Up Store</title>
+  <title>vF Hester's Store</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.4;
     }
     header {
-      background: #2c3e50;
-      color: white;
+      background: #111;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+    header img {
+      height: 40px;
+    }
+    /* Hero slider */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .slides {
+      display: flex;
+      width: 200%;
+      animation: slide 8s infinite;
+    }
+    .slides img {
+      width: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0%,25% { transform: translateX(0); }
+      30%,55% { transform: translateX(-100%); }
+      60%,100% { transform: translateX(0); }
+    }
+    /* Diamond grid */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 1rem;
+      gap: 1rem;
+    }
+    .item {
+      background: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      width: calc(50% - 1rem);
+      box-sizing: border-box;
       text-align: center;
     }
-    .container {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    label {
+    .item img {
+      max-width: 100px;
       display: block;
-      margin-top: 1rem;
+      margin: 0 auto 0.5rem;
     }
-    input, select, button, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .item h3 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 1rem;
     }
-    button {
-      background: #27ae60;
-      color: white;
-      border: none;
-      cursor: pointer;
+    .item p {
+      margin: 0;
+      font-size: 0.9rem;
     }
-    button:hover {
-      background: #219150;
-    }
-    .gpay-info {
-      display: none;
-      background: #f0f8ff;
+    /* About section */
+    .about {
       padding: 1rem;
-      margin-top: 1rem;
-      border-left: 4px solid #2196F3;
+      background: #111;
+    }
+    .about h2 {
+      margin-top: 0;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      font-size: 0.8rem;
     }
   </style>
-  <script>
-    function showPaymentInfo() {
-      const method = document.getElementById("payment").value;
-      const gpayInfo = document.getElementById("gpayInfo");
-      if (method === "gpay") {
-        gpayInfo.style.display = "block";
-      } else {
-        gpayInfo.style.display = "none";
-      }
-    }
-  </script>
 </head>
 <body>
   <header>
-    <h1>Diamond Top-Up Store</h1>
-  </header>
-  <div class="container">
-    <form>
-      <label for="game">Select Game:</label>
-      <select id="game" name="game">
-        <option value="freefire">Free Fire</option>
-        <option value="mobilelegends">Mobile Legends</option>
-      </select>
-
-      <label for="playerId">Player ID:</label>
-      <input type="text" id="playerId" name="playerId" required />
-
-      <label for="amount">Select Diamond Amount:</label>
-      <select id="amount" name="amount">
-        <option value="50">50 Diamonds - $0.99</option>
-        <option value="100">100 Diamonds - $1.99</option>
-        <option value="250">250 Diamonds - $4.99</option>
-        <option value="500">500 Diamonds - $9.99</option>
-      </select>
-
-      <label for="payment">Payment Method:</label>
-      <select id="payment" name="payment" onchange="showPaymentInfo()">
-        <option value="paypal">PayPal</option>
-        <option value="gcash">GCash</option>
-        <option value="card">Credit/Debit Card</option>
-        <option value="gpay">Google Pay</option>
-      </select>
-
-      <div id="gpayInfo" class="gpay-info">
-        <p><strong>Send payment to:</strong> winnergame9@oksbi</p>
-        <p>After completing the payment, enter the Transaction ID below.</p>
-      </div>
-
-      <label for="transactionId">Transaction ID (for GPay payments):</label>
-      <input type="text" id="transactionId" name="transactionId" />
-
-      <button type="submit">Submit Payment</button>
-    </form>
-  </div>
+    <img src="https://via.placeholder.com/40" alt="Logo" />
+    <h1 style="margin-left: 1rem; font-size: 1.2rem;">vF Hester's Store</h1>
+  </header>  <div class="slider">
+    <div class="slides">
+      <img src="https://via.placeholder.com/800x200?text=Mobile+Legends+Banner+1" alt="Banner 1" />
+      <img src="https://via.placeholder.com/800x200?text=Mobile+Legends+Banner+2" alt="Banner 2" />
+    </div>
+  </div>  <section class="about">
+    <h2>About</h2>
+    <p>Recharge MLBB Diamonds via Google Pay. Fast, secure, and affordable prices that update according to provider.</p>
+  </section>  <h2 style="text-align:center; padding-top:1rem;">Diamond Packages</h2>
+  <div class="grid">
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=44+Diamonds" alt="44 Diamonds" />
+      <h3>44 Diamonds</h3>
+      <p>₹80</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=112+Diamonds" alt="112 Diamonds" />
+      <h3>112 Diamonds</h3>
+      <p>₹160</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=172+Diamonds" alt="172 Diamonds" />
+      <h3>172 Diamonds</h3>
+      <p>₹230</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=221+Diamonds" alt="221 Diamonds" />
+      <h3>221 Diamonds</h3>
+      <p>₹320</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=336+Diamonds" alt="336 Diamonds" />
+      <h3>336 Diamonds</h3>
+      <p>₹460</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=344+Diamonds" alt="344 Diamonds" />
+      <h3>344 Diamonds</h3>
+      <p>₹470</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=430+Diamonds" alt="430 Diamonds" />
+      <h3>430 Diamonds</h3>
+      <p>₹570</p>
+    </div>
+    <div class="item" style="width:100%;">
+      <img src="https://via.placeholder.com/200?text=706+Diamonds" alt="706 Diamonds" />
+      <h3>706 Diamonds</h3>
+      <p>₹820</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=792+Diamonds" alt="792 Diamonds" />
+      <h3>792 Diamonds</h3>
+      <p>₹940</p>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/100?text=1032+Diamonds" alt="1032 Diamonds" />
+      <h3>1032 Diamonds</h3>
+      <p>₹1380</p>
+    </div>
+    <div class="item" style="width:100%;">
+      <img src="https://via.placeholder.com/200?text=1376+Diamonds" alt="1376 Diamonds" />
+      <h3>1376 Diamonds</h3>
+      <p>₹1760</p>
+    </div>
+  </div>  <footer>
+    &copy; 2025 vF Hester's Store
+  </footer>
 </body>
 </html>
